@@ -1,0 +1,6 @@
+
+<ng-container *ngIf="userListItem">
+  <span class="rounded {{ bgClass }} text-white fw-bold px-2 py-1">{{ userListItem.id }}</span>
+  <span class="ms-2">{{ userListItem.name }}</span>
+  <span class="ms-1" *ngIf="userListItem?.matos">({{ userListItem.matos }})</span>
+</ng-container>
