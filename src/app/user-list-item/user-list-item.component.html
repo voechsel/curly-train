@@ -1,6 +1,22 @@
+<div *ngIf="userListItem">
 
-<ng-container *ngIf="userListItem">
-  <span class="rounded {{ bgClass }} text-white fw-bold px-2 py-1">{{ userListItem.id }}</span>
-  <span class="ms-2">{{ userListItem.name }}</span>
+  <span class="rounded {{ bgClass }} text-white fw-bold px-2 py-1">{{ userListItem.idx }}</span>
+  <span class="ms-2 fw-bold">{{ userListItem.name }}</span>
+
+  <ng-container *ngIf="userListItem.name==='Marc'">
+    <span class="ms-2" >Pas de cheuveux</span>
+  </ng-container>
+
+  <ng-container *ngIf="!(userListItem.name==='Marc')">
+    <ng-container *ngIf="userListItem.hairColor">
+      <span class="ms-2" *ngIf="userListItem?.hairColor">{{ userListItem.hairColor }}</span>
+      <span class="ms-2" *ngIf="!userListItem?.hairColor">Pas de couleur</span>
+    </ng-container>
+    <ng-container *ngIf="!(userListItem.hairColor)">
+      <span class="ms-2" >no data for hairColor</span>
+    </ng-container>
+  </ng-container>
+
   <span class="ms-1" *ngIf="userListItem?.matos">({{ userListItem.matos }})</span>
-</ng-container>
+
+</div>

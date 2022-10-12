@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {userListItem} from 'src/assets/models/userListItem';
 
 @Component({
   selector: 'app-user-list-item',
@@ -7,12 +8,11 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class UserListItemComponent implements OnInit {
 
-  @Input() userListItem?: { id: number; name: string; matos?: string; };
+  @Input() userListItem?: userListItem;
   @Input() bgClass? = 'bg-danger';
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

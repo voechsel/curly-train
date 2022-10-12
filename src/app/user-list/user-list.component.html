@@ -11,9 +11,9 @@
 
     <div class="col-12">
       <div class="list-group">
-        <div *ngFor="let el of userListItems" class="list-group-item">
+        <a *ngFor="let el of userListItems;" (click)="userOnClick(el)" class="list-group-item">
           <app-user-list-item [userListItem]="el" [bgClass]="bgClass"></app-user-list-item>
-        </div>
+        </a>
       </div>
     </div>
 
