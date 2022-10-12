@@ -1,17 +1,31 @@
 <app-header [headerTitle]="appTitle"></app-header>
 
-<app-user-list (selectUser)="userIsSelected_1($event)" [userListItems]="itemsFirst" [showResults]="false" [bgClass]="'bg-warning'"></app-user-list>
-
-<div class="m-3 div rounded p-2 bg-secondary text-center">
-  <h1 class="display-6 text-white fw-bold">{{ currentUser_1?.name }}</h1>
-  <button class="btn btn-light" (click)="reset_1()">reset</button>
+<div class="navbar bg-light text-white w-100">
+  <div class="d-flex align-items-center justify-content-center w-100">
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a
+          [routerLinkActive]="'active'"
+          [routerLink]="'home'"
+          class="nav-link"
+        >Home</a>
+      </li>
+      <li class="nav-item">
+        <a
+          [routerLinkActive]="'active'"
+          [routerLink]="'contact'"
+          class="nav-link"
+        >Contact</a>
+      </li>
+      <li class="nav-item">
+        <a
+          [routerLinkActive]="'active'"
+          [routerLink]="'users'"
+          class="nav-link"
+        >Users</a>
+      </li>
+    </ul>
+  </div>
 </div>
 
-<app-user-list (selectUser)="userIsSelected_2($event)" [userListItems]="itemsSecond" [showResults]="true" [bgClass]="'bg-info'"></app-user-list>
-
-<div *ngIf="!currentUser_1" class="m-3 div rounded p-2 bg-secondary text-center">
-  <h1 class="display-6 text-white fw-bold">{{ currentUser_2?.name }}</h1>
-</div>
-
-
-
+<router-outlet></router-outlet>
