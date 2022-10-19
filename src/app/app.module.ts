@@ -6,9 +6,12 @@ import {HeaderComponent} from './header/header.component';
 import {UserListComponent} from './user-list/user-list.component';
 import {UserListItemComponent} from './user-list-item/user-list-item.component';
 import {AppRoutingModule} from "./app-routing.module";
-import { HomeComponent } from './home/home.component';
-import { ContactComponent } from './contact/contact.component';
-import { UsersComponent } from './users/users.component';
+import {HomeComponent} from './home/home.component';
+import {ContactComponent} from './contact/contact.component';
+import {UsersComponent} from './users/users.component';
+import {ContactListComponent} from './contact/list/list.component';
+import {ContactDetailComponent} from './contact/detail/detail.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { UsersComponent } from './users/users.component';
     UserListItemComponent,
     HomeComponent,
     ContactComponent,
-    UsersComponent
+    UsersComponent,
+    ContactListComponent,
+    ContactDetailComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,

@@ -3,3 +3,21 @@
     <h3 class="text-black">Contact works!</h3>
   </div>
 </div>
+
+<div class="container my-3">
+  <div class="d-flex">
+    <div class="me-4">
+      <a class="a" [routerLink]="'/contact'"><< Retour</a>
+    </div>
+    <div class="me-2">
+      <a class="a" [routerLink]="'list'">List</a>
+    </div>
+<!--    <div class="me-2">-->
+<!--      <a class="a" [routerLink]="'detail'">Detail</a>-->
+<!--    </div>-->
+  </div>
+</div>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

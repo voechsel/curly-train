@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="card-header">Contacts</div>
+  <div class="list-group list-group-flush">
+    <div *ngFor="let item of items"
+         [routerLink]="'../detail/' + item.id"
+         class="list-group-item"
+    >
+      {{ item.name }} - {{ item.color }} - ({{ '../detail/' + item.id }})
+    </div>
+  </div>
+</div>
