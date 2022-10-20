@@ -67,18 +67,17 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  userIsSelected_1(event: any): void {
-    console.log('userIsSelected_1:', event);
-    this.currentUser_1 = event;
-  }
-
   reset_1(): void {
     this.currentUser_1 = undefined;
     this.currentUser_2 = undefined;
   }
 
-  userIsSelected_2(event: any): void {
-    console.log('userIsSelected_2:', event);
-    this.currentUser_2 = event;
+  userIsSelected(event: any, list: string): void {
+    console.log('userIsSelected:', event, list);
+    if(list === 'list_1') {
+      this.currentUser_1 = event;
+    } else {
+      this.currentUser_2 = event;
+    }
   }
 }
