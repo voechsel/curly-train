@@ -1,14 +1,16 @@
-<app-user-list (selectUser)="userIsSelected_1($event)" [userListItems]="itemsFirst" [showResults]="false" [bgClass]="'bg-warning'"></app-user-list>
+<app-user-list (selectUser)="userIsSelected_1($event)" [userListItems]="itemsFirst" [showResults]="false"
+  [bgClass]="'bg-warning'"></app-user-list>
 
 <div class="m-3 div rounded p-2 bg-secondary text-center">
   <h1 class="display-6 text-white fw-bold">{{ currentUser_1?.name }}</h1>
-  <button class="btn btn-light" (click)="reset()">reset</button>
-  <button class="btn btn-light" (click)="delete($event)">delete</button>
 </div>
-
-<app-user-list (selectUser)="userIsSelected_2($event)" [userListItems]="itemsSecond" [showResults]="true" [bgClass]="'bg-info'"></app-user-list>
+<div class="d-flex justify-content-center align-items-center gap-3">
+  <button class="btn btn-warning" (click)="reset()">reset</button>
+  <button class="btn btn-danger" (click)="delete($event)">delete</button>
+</div>
+<app-user-list (selectUser)="userIsSelected_2($event)" [userListItems]="itemsSecond" [showResults]="true"
+  [bgClass]="'bg-info'"></app-user-list>
 
 <div class="m-3 div rounded p-2 bg-secondary text-center">
   <h1 class="display-6 text-white fw-bold">{{ currentUser_2?.name }}</h1>
 </div>
-
