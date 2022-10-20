@@ -19,7 +19,8 @@ export class UserListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  userOnClick(param: userListItem): void {
-    this.selectUser.emit(param);
+  userOnClick(el: userListItem, index: number): void {
+    el.id = index;
+    this.selectUser.emit(el);
   }
 }
