@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import { ContactService } from 'src/app/contact.service';
 
 @Component({
   selector: 'app-contact-detail',
@@ -8,23 +9,14 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ContactDetailComponent implements OnInit {
 
-  userInDb = [
-    { name: 'Vincent', color: 'chatain', id: 3},
-    { name: 'Francine', color: 'blond', id: 1},
-    { name: 'Antony', color: 'brun', id: 2}
-  ];
-
   user: any;
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private contact: ContactService
   ) {
     this.route.params.subscribe(evt => {
-      this.userInDb.forEach(user => {
-        if (user.id == evt['id']) {
-          this.user = user;
-        }
-      });
+      this.user = this.contact.find(evt['id']);
     });
   }
 

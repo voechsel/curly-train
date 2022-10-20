@@ -11,7 +11,7 @@
 
     <div class="col-12">
       <div class="list-group">
-        <a *ngFor="let el of userListItems;" (click)="userOnClick(el)" class="list-group-item">
+        <a *ngFor="let el of userListItems, let index = index;" (click)="userOnClick(el, index)" class="list-group-item">
           <app-user-list-item [userListItem]="el" [bgClass]="bgClass"></app-user-list-item>
         </a>
       </div>

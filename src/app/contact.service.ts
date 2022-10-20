@@ -12,4 +12,14 @@ export class ContactService {
   ];
 
   constructor() { }
+
+  find(id:any): any {
+    let tmpUser;
+    this.userInDb.forEach(user => {
+      if (user.id == id) {
+        tmpUser = user;
+      }
+    });
+    return tmpUser;
+  }
 }

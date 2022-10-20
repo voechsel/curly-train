@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {userListItem} from "../../assets/models/userListItem";
+import {UsersService} from "../users.service";
 
 @Component({
   selector: 'app-users',
@@ -8,66 +9,24 @@ import {userListItem} from "../../assets/models/userListItem";
 })
 export class UsersComponent implements OnInit {
   // Liste de résultats API
-  itemsFirst: userListItem[] = [
-    {
-      id: 1,
-      idx: 1,
-      name: 'Francine',
-      matos: 'mac',
-      hairColor: 'bleu'
-    },
-    {
-      id: 2,
-      idx: 2,
-      name: 'Antony',
-      hairColor: 'chatain'
-    },
-    {
-      id: 3,
-      idx: 3,
-      name: 'Vincent',
-      matos: 'pc',
-      hairColor: null
-    }
-  ];
-
-  itemsSecond: userListItem[] = [
-    {
-      id: 4,
-      idx: 1,
-      name: 'Audrey',
-      hairColor: 'noir'
-    },
-    {
-      id: 5,
-      idx: 2,
-      name: 'Damien'
-    },
-    {
-      id: 7,
-      idx: 3,
-      name: 'Marc',
-      matos: 'souris'
-    },
-    {
-      id: 6,
-      idx: 4,
-      name: 'Corina',
-      hairColor: 'blonde'
-    }
-  ];
 
   currentUser_1?: userListItem;
   currentUser_2?: userListItem;
+  itemsFirst: any;
+  itemsSecond: any;
 
-  route?: string;
+  constructor(
+    private users: UsersService
+  ) {
 
-  constructor() { }
-
-  ngOnInit(): void {
   }
 
-  reset_1(): void {
+  ngOnInit(): void {
+    this.itemsFirst = this.users.itemsFirst;
+    this.itemsSecond = this.users.itemsSecond;
+  }
+
+  reset(): void {
     this.currentUser_1 = undefined;
     this.currentUser_2 = undefined;
   }
@@ -79,5 +38,9 @@ export class UsersComponent implements OnInit {
     } else {
       this.currentUser_2 = event;
     }
+  }
+
+  delete(evt: any): void {
+
   }
 }
