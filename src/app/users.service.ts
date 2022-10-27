@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { userListItem } from 'src/assets/models/userListItem';
+import {Injectable} from '@angular/core';
+import {userListItem} from 'src/assets/models/userListItem';
 
 @Injectable({
   providedIn: 'root'
@@ -58,17 +58,10 @@ export class UsersService {
   currentUser_1?: userListItem;
   currentUser_2?: userListItem;
 
-  constructor() { }
-
-  userIsSelected_1(event: any): any {
-    console.log('userIsSelected_1:', event);
-    this.currentUser_1 = event;
-    return event;
+  constructor() {
   }
 
-  userIsSelected_2(event: any): any {
-    console.log('userIsSelected_2:', event);
-    this.currentUser_2 = event;
+  selectUser(event: any): any {
     return event;
   }
 

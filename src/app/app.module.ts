@@ -12,6 +12,8 @@ import {UsersComponent} from './users/users.component';
 import {ContactListComponent} from './contact/list/list.component';
 import {ContactDetailComponent} from './contact/detail/detail.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ContactEditComponent } from './contact/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,14 @@ import { NotfoundComponent } from './notfound/notfound.component';
     UsersComponent,
     ContactListComponent,
     ContactDetailComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    ContactEditComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

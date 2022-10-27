@@ -1,0 +1,45 @@
+<ng-container *ngIf="user">
+  <h3>{{ user.name }} <small class="text-muted">{{ user.color }}</small></h3>
+</ng-container>
+
+<hr>
+
+<form [formGroup]="form">
+  <div class="row">
+    <div class="col-12 mb-3">
+      <h6>Editer le contact</h6>
+    </div>
+    <div class="col-12 mb-2">
+      <label
+        [class.text-danger]="!form.controls['name'].valid"
+      >Nom</label>
+      <input type="text" class="form-control" [formControlName]="'name'">
+    </div>
+    <div class="col-12 mb-2">
+      <label
+        [class.text-danger]="!form.controls['color'].valid"
+      >Color ({{form.controls['color'].value}})</label>
+      <input type="color" class="form-control" [formControlName]="'color'">
+    </div>
+    <div class="col-12 mb-2">
+      <label
+        [class.text-danger]="!form.controls['email'].valid"
+      >Email</label>
+      <input type="email" class="form-control" [formControlName]="'email'">
+    </div>
+    <div class="col-12 mb-2">
+      <button [disabled]="!form.valid" type="button" class="btn btn-primary" (click)="submit()">Enregistrer</button>
+    </div>
+  </div>
+</form>
+
+<div>
+  <p>
+    Data:
+    {{ form.value | json }}
+  </p>
+  <p>
+    Valid:
+    {{ form.valid | json }}
+  </p>
+</div>

@@ -9,12 +9,14 @@ import { ContactService } from 'src/app/contact.service';
 export class ContactListComponent implements OnInit {
 
   items: any;
-  
+
   constructor(private contact: ContactService) {
     this.items = this.contact.userInDb;
    }
 
   ngOnInit(): void {
   }
+
+
 
 }

@@ -6,6 +6,7 @@ import {UsersComponent} from './users/users.component';
 import {ContactListComponent} from './contact/list/list.component';
 import {ContactDetailComponent} from './contact/detail/detail.component';
 import {NotfoundComponent} from "./notfound/notfound.component";
+import {ContactEditComponent} from "./contact/edit/edit.component";
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
       {
         path: 'detail/:id',
         component: ContactDetailComponent
+      },
+      {
+        path: 'edit/:id',
+        component: ContactEditComponent
       }
     ]
   },

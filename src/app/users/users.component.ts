@@ -16,14 +16,14 @@ export class UsersComponent implements OnInit {
   itemsSecond: any;
 
   constructor(
-    private users: UsersService
+    private usersService: UsersService
   ) {
 
   }
 
   ngOnInit(): void {
-    this.itemsFirst = this.users.itemsFirst;
-    this.itemsSecond = this.users.itemsSecond;
+    this.itemsFirst = this.usersService.itemsFirst;
+    this.itemsSecond = this.usersService.itemsSecond;
   }
 
   reset(): void {
@@ -34,13 +34,13 @@ export class UsersComponent implements OnInit {
   userIsSelected(event: any, list: string): void {
     console.log('userIsSelected:', event, list);
     if(list === 'list_1') {
-      this.currentUser_1 = event;
+      this.currentUser_1 = this.usersService.selectUser(event);
     } else {
-      this.currentUser_2 = event;
+      this.currentUser_2 = this.usersService.selectUser(event);
     }
   }
 
   delete(evt: any): void {
-
+    this.currentUser_1 = this.usersService.delete(evt);
   }
 }

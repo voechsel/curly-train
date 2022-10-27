@@ -6,9 +6,9 @@ import { Injectable } from '@angular/core';
 export class ContactService {
 
   userInDb = [
-    { name: 'Vincent', color: 'chatain', id: 3},
-    { name: 'Francine', color: 'blond', id: 1},
-    { name: 'Antony', color: 'brun', id: 2}
+    { name: 'Vincent', color: 'chatain', id: 3, 'email': 'vince@rn.fr'},
+    { name: 'Francine', color: 'blond', id: 1, 'email': 'francine@rn.fr'},
+    { name: 'Antony', color: 'brun', id: 2, 'email': 'antony@rn.fr'},
   ];
 
   constructor() { }
@@ -22,4 +22,9 @@ export class ContactService {
     });
     return tmpUser;
   }
+
+  delete(index: number): void {
+    this.userInDb.splice(index, 1);
+  }
+
 }
