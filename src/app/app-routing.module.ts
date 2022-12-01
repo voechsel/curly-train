@@ -7,6 +7,7 @@ import {ContactListComponent} from './contact/list/list.component';
 import {ContactDetailComponent} from './contact/detail/detail.component';
 import {NotfoundComponent} from "./notfound/notfound.component";
 import {ContactEditComponent} from "./contact/edit/edit.component";
+import {UserAddEditFormComponent} from "./user-add-edit-form/user-add-edit-form.component";
 
 const routes: Routes = [
   {
@@ -38,7 +39,11 @@ const routes: Routes = [
   },
   {
     path: 'users',
-    component: UsersComponent
+    component: UsersComponent,
+  },
+  {
+    path: 'users/add',
+    component: UserAddEditFormComponent
   },
   {
     path: '**',

@@ -1,4 +1,4 @@
-<app-user-list (selectUser)="userIsSelected($event, 'list_1')" [userListItems]="itemsFirst" [showResults]="false" [bgClass]="'bg-warning'"></app-user-list>
+<app-user-list *ngIf="itemsFirst" (selectUser)="userIsSelected($event, 'list_1')" [userListItems]="itemsFirst" [showResults]="false" [bgClass]="'bg-warning'"></app-user-list>
 
 <div class="m-3 div rounded p-2 bg-secondary text-center">
   <h1 class="display-6 text-white fw-bold">{{ currentUser_1?.name }}</h1>
@@ -6,10 +6,12 @@
 
 <div class="d-flex justify-content-center align-items-center gap-3">
 <!--  <button class="btn btn-warning" (click)="reset()">reset</button>-->
+  <button class="btn btn-success" [routerLink]="'/users/add/'">add</button>
   <button class="btn btn-danger" (click)="delete($event)">delete</button>
+  <button class="btn btn-info text-white" (click)="clone($event)">clone</button>
 </div>
 
-<app-user-list (selectUser)="userIsSelected($event, 'list_2')" [userListItems]="itemsSecond" [showResults]="true" [bgClass]="'bg-info'"></app-user-list>
+<app-user-list *ngIf="itemsSecond" (selectUser)="userIsSelected($event, 'list_2')" [userListItems]="itemsSecond" [showResults]="true" [bgClass]="'bg-info'"></app-user-list>
 
 <div *ngIf="!currentUser_1" class="m-3 div rounded p-2 bg-secondary text-center">
   <h1 class="display-6 text-white fw-bold">{{ currentUser_2?.name }}</h1>

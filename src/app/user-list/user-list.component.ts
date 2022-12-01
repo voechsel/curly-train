@@ -17,10 +17,11 @@ export class UserListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
   userOnClick(el: userListItem, index: number): void {
-    el.id = index;
+    el.idx = index;
     this.selectUser.emit(el);
   }
 }

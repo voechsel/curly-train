@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {userListItem} from "../../assets/models/userListItem";
 import {UsersService} from "../users.service";
+import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-users',
@@ -16,13 +18,15 @@ export class UsersComponent implements OnInit {
   itemsSecond: any;
 
   constructor(
-    private usersService: UsersService
+    private usersService: UsersService,
+    private httpClient: HttpClient,
+    private router: Router
   ) {
 
   }
 
-  ngOnInit(): void {
-    this.itemsFirst = this.usersService.itemsFirst;
+  async ngOnInit() {
+    this.itemsFirst = await this.httpClient.get('http://localhost:8000/home/').toPromise();
     this.itemsSecond = this.usersService.itemsSecond;
   }
 
@@ -41,6 +45,31 @@ export class UsersComponent implements OnInit {
   }
 
   delete(evt: any): void {
-    this.currentUser_1 = this.usersService.delete(evt);
+    if (this.currentUser_1) {
+      this.httpClient.get('http://localhost:8000/home/delete/'+this.currentUser_1?.id).subscribe(async response => {
+          console.log('User has been cloned !');
+          this.itemsFirst = await this.httpClient.get('http://localhost:8000/home/').toPromise();
+          console.log(this.itemsFirst);
+        }
+      );
+      this.currentUser_1 = undefined;
+    } else {
+      console.log('User is not selected !');
+    }
   }
+
+  clone(evt: any): void {
+    if (this.currentUser_1) {
+      this.httpClient.get('http://localhost:8000/home/clone/'+this.currentUser_1?.id).subscribe(async response => {
+          console.log('User has been cloned !');
+          this.itemsFirst = await this.httpClient.get('http://localhost:8000/home/').toPromise();
+          console.log(this.itemsFirst);
+        }
+      );
+      this.currentUser_1 = undefined;
+    } else {
+      console.log('User is not selected !');
+    }
+  }
+
 }

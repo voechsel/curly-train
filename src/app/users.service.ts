@@ -1,33 +1,11 @@
 import {Injectable} from '@angular/core';
 import {userListItem} from 'src/assets/models/userListItem';
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-
-  itemsFirst: userListItem[] = [
-    {
-      id: 1,
-      idx: 1,
-      name: 'Francine',
-      matos: 'mac',
-      hairColor: 'bleu'
-    },
-    {
-      id: 2,
-      idx: 2,
-      name: 'Antony',
-      hairColor: 'chatain'
-    },
-    {
-      id: 3,
-      idx: 3,
-      name: 'Vincent',
-      matos: 'pc',
-      hairColor: null
-    }
-  ];
 
   itemsSecond: userListItem[] = [
     {
@@ -58,7 +36,9 @@ export class UsersService {
   currentUser_1?: userListItem;
   currentUser_2?: userListItem;
 
-  constructor() {
+  constructor(
+
+  ) {
   }
 
   selectUser(event: any): any {
@@ -66,13 +46,8 @@ export class UsersService {
   }
 
   delete(event: any): any {
-    if (this.currentUser_1) {
-      event = this.currentUser_1.id;
-      console.log(event);
-      this.itemsFirst.splice(event, 1);
-    }
     if (this.currentUser_2) {
-      event = this.currentUser_2.id;
+      event = this.currentUser_2.idx;
       console.log(event);
       this.itemsSecond.splice(event, 1);
     }

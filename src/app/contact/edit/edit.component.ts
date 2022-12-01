@@ -19,12 +19,17 @@ export class ContactEditComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.route.params.subscribe(evt => {
-      this.user = this.contact.find(evt['id']);
+      if (evt['id'] == 0) {
+        this.user = { name: '', color: '', id: 0, email: ''};
+      } else {
+        this.user = this.contact.find(evt['id']);
+      }
     });
   }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
+      id: new FormControl(this.user.id, Validators.required),
       name: new FormControl(this.user.name, Validators.required),
       color: new FormControl(this.user.color, Validators.required),
       email: new FormControl(this.user.email, [Validators.required, Validators.email]),
@@ -32,6 +37,12 @@ export class ContactEditComponent implements OnInit {
   }
 
   submit(): void {
-    console.log(this.form.value);
+    console.log(this.user)
+    this.user = this.form.value;
+    if (this.user.id == 0) {
+      this.contact.create(this.form.value);
+    } else {
+      this.contact.update(this.user.id, this.form.value);
+    }
   }
 }
