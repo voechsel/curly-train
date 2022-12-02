@@ -17,6 +17,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ContactEditComponent } from './contact/edit/edit.component';
 import { UserAddEditFormComponent } from './user-add-edit-form/user-add-edit-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditModalComponent } from './users/edit-modal/edit-modal.component';
+import {ModalModule} from "ngx-bootstrap/modal";
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ContactDetailComponent,
     NotfoundComponent,
     ContactEditComponent,
-    UserAddEditFormComponent
+    UserAddEditFormComponent,
+    EditModalComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

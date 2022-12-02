@@ -1,0 +1,29 @@
+<ng-container>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Oui</h4>
+  </div>
+  <div class="modal-body">
+    <div class="container-fluid d-flex justify-content-center">
+      <div class="p-3 m-2 gy-3 gap-1" style="width: 50%;">
+        <form [formGroup]="form">
+          <label class="form-label">Name :</label>
+          <input class="form-control" id="name" type="text" formControlName="name"/><br/>
+
+          <label class="form-label">Matos :</label>
+          <input class="form-control" id="matos" type="text" formControlName="matos"/><br/>
+
+          <label class="form-label">Haircolor :</label>
+          <input class="form-control" id="haircolor" type="text" formControlName="haircolor"/><br/>
+          <div class="d-flex justify-content-between">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button (click)="close()" class="btn btn-danger">Retour</button>
+    <button [disabled]="form.invalid" class="btn btn-success d-flex justify-content-center" type="button"
+            (click)="sniff()">Valider
+    </button>
+  </div>
+</ng-container>
