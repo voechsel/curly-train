@@ -12,7 +12,7 @@ import {User} from "../../../assets/models/user";
 })
 export class EditModalComponent implements OnInit {
 
-  user: User;
+  user: any;
   form!: FormGroup;
 
   constructor(
@@ -22,12 +22,13 @@ export class EditModalComponent implements OnInit {
     private formBuilder: FormBuilder,
     private httpClient: HttpClient,
   ) {
-    this.user = new User('', '',0,'');
   }
 
   ngOnInit(): void {
     if (!this.user) {
-      this.user = new User('', '', 0, '');
+      this.user = new User({});
+    } else {
+      this.user = new User(this.user);
     }
       this.form = this.formBuilder.group({
         name: new FormControl(this.user.name, Validators.required),

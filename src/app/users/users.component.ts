@@ -50,7 +50,7 @@ export class UsersComponent implements OnInit {
   delete(): void {
     if (this.currentUser_1) {
       this.httpClient.get('http://localhost:8000/home/delete/' + this.currentUser_1?.id).subscribe(async response => {
-          console.log('User has been cloned !');
+          console.log('User has been deleted !');
           this.itemsFirst = await this.httpClient.get('http://localhost:8000/home/').toPromise();
           console.log(this.itemsFirst);
         }
@@ -69,6 +69,11 @@ export class UsersComponent implements OnInit {
       );
       this.currentUser_1 = undefined;
     }
+  }
+
+  openAddModal() {
+    this.currentUser_1 = undefined;
+    this.openModal();
   }
 
   openModal() {
