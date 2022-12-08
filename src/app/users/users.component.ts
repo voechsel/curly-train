@@ -5,6 +5,7 @@ import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {BsModalRef, BsModalService} from "ngx-bootstrap/modal";
 import {EditModalComponent} from "./edit-modal/edit-modal.component";
+import {CloneDeleteModalComponent} from "./clone-delete-modal/clone-delete-modal.component";
 
 @Component({
   selector: 'app-users',
@@ -48,7 +49,7 @@ export class UsersComponent implements OnInit {
   }
 
   delete(): void {
-    if (this.currentUser_1) {
+    {
       this.httpClient.get('http://localhost:8000/home/delete/' + this.currentUser_1?.id).subscribe(async response => {
           console.log('User has been deleted !');
           this.itemsFirst = await this.httpClient.get('http://localhost:8000/home/').toPromise();
@@ -60,7 +61,7 @@ export class UsersComponent implements OnInit {
   }
 
   clone(): void {
-    if (this.currentUser_1) {
+     {
       this.httpClient.get('http://localhost:8000/home/clone/' + this.currentUser_1?.id).subscribe(async response => {
           console.log('User has been cloned !');
           this.itemsFirst = await this.httpClient.get('http://localhost:8000/home/').toPromise();
@@ -85,6 +86,23 @@ export class UsersComponent implements OnInit {
     this.bsModalRef.content.confirmFn = async () => {
       this.bsModalRef?.hide();
       this.itemsFirst = await this.httpClient.get('http://localhost:8000/home/').toPromise();
+    }
+  }
+
+  openDeleteCloneModal(isCloned: boolean, msg: string) {
+    this.bsModalRef = this.modalService.show(CloneDeleteModalComponent, {
+      initialState: {
+        userId: this.currentUser_1?.id,
+        msg,
+        isCloned
+      }
+    });
+    this.bsModalRef.content.confirmFn = async () => {
+      console.log('UserComponent');
+      this.bsModalRef?.hide();
+      this.itemsFirst = await this.httpClient.get('http://localhost:8000/home/').toPromise();
+      console.log(this.itemsFirst);
+      this.currentUser_1 = undefined;
     }
   }
 }

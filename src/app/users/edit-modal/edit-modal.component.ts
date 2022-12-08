@@ -32,7 +32,6 @@ export class EditModalComponent implements OnInit {
     }
       this.form = this.formBuilder.group({
         name: new FormControl(this.user.name, Validators.required),
-        id: new FormControl(this.user.id, Validators.required),
         matos: new FormControl(this.user.matos, Validators.required),
         haircolor: new FormControl(this.user.haircolor, Validators.required)
       });

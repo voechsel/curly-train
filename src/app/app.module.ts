@@ -19,6 +19,7 @@ import { UserAddEditFormComponent } from './user-add-edit-form/user-add-edit-for
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditModalComponent } from './users/edit-modal/edit-modal.component';
 import {ModalModule} from "ngx-bootstrap/modal";
+import { CloneDeleteModalComponent } from './users/clone-delete-modal/clone-delete-modal.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {ModalModule} from "ngx-bootstrap/modal";
     NotfoundComponent,
     ContactEditComponent,
     UserAddEditFormComponent,
-    EditModalComponent
+    EditModalComponent,
+    CloneDeleteModalComponent,
   ],
   imports: [
     BrowserModule,

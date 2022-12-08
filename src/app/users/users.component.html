@@ -12,8 +12,8 @@
 <div class="d-flex justify-content-center align-items-center gap-3">
 <!--  <button class="btn btn-warning" (click)="reset()">reset</button>-->
   <button class="btn btn-success" (click)="openAddModal()">add</button>
-  <button [disabled]="!currentUser_1" class="btn btn-danger" (click)="delete()">delete</button>
-  <button [disabled]="!currentUser_1" class="btn btn-info text-white" (click)="clone()">clone</button>
+  <button [disabled]="!currentUser_1" class="btn btn-danger" (click)="openDeleteCloneModal(false, 'Do you really want to delete ?')">delete</button>
+  <button [disabled]="!currentUser_1" class="btn btn-info text-white" (click)="openDeleteCloneModal(true, 'Do you really want to clone ?')">clone</button>
   <button [disabled]="!currentUser_1" class="btn btn-warning text-white" (click)="openModal()">edit</button>
   <button [disabled]="!currentUser_1" class="btn btn-dark" (click)="reset()">reset</button>
 </div>

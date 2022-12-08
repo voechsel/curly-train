@@ -5,7 +5,7 @@ export class User {
   haircolor: any;
 
   constructor(data: any) {
-    this.id = data.id ? data.id : 0;
+    this.id = data.id;
     this.name = data.name ? data.name : '';
     this.matos = data.matos ? data.matos : '';
     this.haircolor = data.haircolor ? data.haircolor : '';
